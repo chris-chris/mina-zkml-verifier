@@ -11,7 +11,7 @@ const PORT = 3000;
 Error.stackTraceLimit = 1000;
 const DEFAULT_NETWORK_ID = 'devnet';
 const deployAlias = 'testnet';
-const modelPath = 'models/simple_perceptron.onnx';
+let modelPath = 'models/simple_perceptron.onnx';
 
 // parse config and private key from file
 type Config = {
@@ -30,6 +30,7 @@ type Config = {
 
 type ModelConfig = {
   modelConfig: {
+      modelPath: string;
       variables: {
           [key: string]: number;
       };
@@ -68,6 +69,7 @@ let zkAppAddress = zkAppKey.toPublicKey();
 
 // Initialize ZKML with model and public visibility first
 console.log("Loading model...");
+modelPath = modelConfig.modelConfig.modelPath || modelPath;
 const zkml = await ZKML.create(modelPath, {
     variables: modelConfig.modelConfig.variables
 }, modelConfig.modelConfig.visibility);

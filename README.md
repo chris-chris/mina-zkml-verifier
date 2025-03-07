@@ -79,7 +79,8 @@ curl -X POST http://localhost:3000/api/verify-proof \
 ### Smart Contract (Custom Model)
 For using a custom model, you can follow the steps below:
 1. Begin by updating the `modelConfig.json` file with the model parameters.
-2. Then use the appropriate model path when invoking the `interact.js` script for interacting with the smart contract.
+2. Update the modelPath in the `modelConfig.json` file with the path to your custom model.
+3. Then use the appropriate model path when invoking the `interact.js` script for interacting with the smart contract.
 
 ### Smart Contract
 

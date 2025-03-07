@@ -1,5 +1,6 @@
 {
   "modelConfig": {
+    "modelPath": "models/simple_perceptron.onnx",
     "variables": {
       "batch_size": 1
     },
